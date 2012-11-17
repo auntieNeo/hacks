@@ -1,0 +1,21 @@
+\section*{\TeX{} / \LaTeX{} Hacks}
+\subsection*{Including Sub Files}
+This isn't much of a hack, but I learned it while making this document, and being meta is always fun, so here it is. To include sub files within a \TeX{} file, simply use the {\tt \textbackslash input} command, like this:
+\begin{verbatim}
+\input{blah.tex}
+\input{foo/bar.tex}
+\end{verbatim}
+This seems to work something like C include files, but I could be mistaken.
+
+\subsection*{Add Space After Symbol}
+Since oftentimes one needs to place a symbol in a document without any space after it (e.g. when writing something like {\tt \textbackslash LaTeX} in a technical document about \LaTeX), most symbol macros don't seem to output a space when placed next to a word. For example, when we want to use \LaTeX{} in a sentence:
+\begin{verbatim}
+This is \LaTeX in a sentence.  -- This isn't what we want.
+                               -- The output will look like
+                               -- "LaTeXin a sentence."
+\end{verbatim}
+with most symbols this behavior is surprising. The solution is to use curly braces {\tt \{\}} like this:
+\begin{verbatim}
+This is \Latex{} in a sentence.  -- This is what we want.
+\end{verbatim}
+Some exceptions to this rule are the special symbols {\tt \textbackslash \&} and {\tt \textbackslash \$}, which behave as one would have initially expected.  % maybe this last point could be made a bit clearer... oh well

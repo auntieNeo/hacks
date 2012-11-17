@@ -1,0 +1,17 @@
+\section*{Doxygen Hacks}
+\subsection*{Highlighting Parameter Names}
+Some of the best documentation I've ever read, and the style of which I try to emulate, is the documentation that comes with Qt. One of the little niceties of the Qt documentation style is that function parameter names are always italicized in the function description, which makes the distinction between parameter identifiers and plain English words clear and immediate.
+
+I wanted this feature with Doxygen, but the default Doxygen theme doesn't use italics; it uses colors! Thankfully, I found an even better solution with this answer on stackoverflow: {\tt http://stackoverflow.com/a/11097684}
+
+Here is the relevant code that I put in my Doxyfile, slightly modified for easier typing:
+\begin{verbatim}
+ALIASES = pn{1}="<strong class="paramname">\1</strong>"
+\end{verbatim}
+
+Parameters can now be highlighted in Doxygen enabled comments like so:
+\begin{verbatim}
+/**
+ * This function returns the product of \pn{foo} and \pn{bar}.
+ */
+\end{verbatim}
